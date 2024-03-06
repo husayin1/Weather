@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.weather.R
 import com.example.weather.databinding.FragmentFavoriteBinding
+import com.google.android.material.snackbar.Snackbar
 
 class FavFragment : Fragment() {
 
@@ -21,6 +24,12 @@ class FavFragment : Fragment() {
             ViewModelProvider(this).get(FavoriteViewModel::class.java)
 
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_FavoriteFragment_to_mapFragment)
+            /*view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()*/
+        }
 
         val textView: TextView = binding.textGallery
         favoriteViewModel.text.observe(viewLifecycleOwner) {

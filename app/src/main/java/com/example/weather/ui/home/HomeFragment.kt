@@ -26,11 +26,13 @@ import com.example.weather.network.RetrofitStateWeather
 import com.example.weather.utilites.CONSTANTS
 import com.example.weather.utilites.Converters
 import com.example.weather.utilites.Helper
+import com.github.matteobattilana.weather.PrecipType
+import com.github.matteobattilana.weather.WeatherView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
-    private lateinit var binding:FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var hourlyAdapter:HourlyAdapter
     private lateinit var dailyAdapter: DailyAdapter
     private lateinit var homeViewModel:HomeViewModel
@@ -42,6 +44,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.weatherView.setWeatherData(PrecipType.CLEAR)
         return binding.root
     }
 
@@ -98,6 +101,13 @@ class HomeFragment : Fragment() {
         setUpHourlyAdapter(data.hourly)
     }
     private fun setDescription(description:String?){
+        if(description=="Rain")
+            binding.weatherView.setWeatherData(PrecipType.CLEAR)
+        else if(description=="Snow")
+            binding.weatherView.setWeatherData(PrecipType.CLEAR)
+        else
+            binding.weatherView.setWeatherData(PrecipType.CLEAR)
+
         binding.textViewWeatherDescription.text = description?.capitalize()
     }
     private fun setPressure(pressure:Int?){

@@ -12,14 +12,23 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_fav"
         android:name="com.example.weather.ui.favorite.FavFragment"
         android:label="@string/menu_favorites"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_FavoriteFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_settings"
         android:name="com.example.weather.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.weather.ui.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>

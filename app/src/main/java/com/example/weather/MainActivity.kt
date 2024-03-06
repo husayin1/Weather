@@ -15,7 +15,6 @@ import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -79,10 +78,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initAppBar()
         initViewModel()
-        binding.appBarMain.fab.setOnClickListener { view ->
+        /*binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-        }
+        }*/
     }
     fun initViewModel(){
         val viewModelFactory = MainViewModelFactory(
@@ -103,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_fav, R.id.nav_settings
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 }
 
@@ -87,5 +88,8 @@ dependencies {
 
     //Swipe home to refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    //weather view
+    implementation 'com.github.MatteoBattilana:WeatherView:3.0.0'
+
 
 }
