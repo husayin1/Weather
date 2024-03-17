@@ -94,5 +94,6 @@
     <string name="notification_permission_title">التصريح مطلوب</string>
     <string name="notification_permmission_desc">من فضلك اجعل تصريح الاشعارات متاح</string>
     <string name="permission_request">طلب التصريح</string>
+    <string name="aler_header">الاشعارات</string>
 
 </resources>

@@ -93,5 +93,6 @@
     <string name="notification_permission_title">Permission Requerd</string>
     <string name="notification_permmission_desc">Please Enable Notification Permission</string>
     <string name="permission_request">Permission Request</string>
+    <string name="aler_header">Alerts</string>
 
 </resources>

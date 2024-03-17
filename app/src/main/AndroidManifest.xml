@@ -31,12 +31,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAlSTQ-ZJiXkdKRouizAp1cXgi7TKc6ZOA" />
 
-        <receiver android:name=".ui.alerts.MyBroadcastReceiver" />
-
-        <receiver
-            android:name=".ui.alerts.DismissReceiver"
-            android:exported="false">
-        </receiver>
 
         <activity
             android:name=".MainActivity"

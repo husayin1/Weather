@@ -84,15 +84,15 @@
     <fragment
         android:id="@+id/nav_alert"
         android:name="com.example.weather.ui.alerts.AlertFragment"
-        android:label="fragment_alerts"
-        tools:layout="@layout/fragment_alerts" >
+        android:label="@string/aler_header"
+        tools:layout="@layout/fragment_alerts">
         <action
             android:id="@+id/action_alertsFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
         <argument
             android:name="latLng"
+            android:defaultValue="@null"
             app:argType="com.example.weather.model.response.LocationLatLngPojo"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
 </navigation>
