@@ -9,7 +9,7 @@ data class Current(
     val pressure: Int? = null,
     val humidity: Int? = null,
     val dew_point: Any? = null,
-    val uvi: Int? = null,
+    val uvi: Double? = null,
     val clouds: Int? = null,
     val visibility: Int? = null,
     val wind_speed: Double? = null,

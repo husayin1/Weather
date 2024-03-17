@@ -1,13 +1,16 @@
 package com.example.weather.model.response
 
+import androidx.annotation.NonNull
+import androidx.room.Entity
+@Entity(tableName = "WeatherData", primaryKeys = ["lat","lon"])
 data class WeatherResponse(
     val alerts: List<Alerts?>? = null,
     val current: Current? = null,
-    val timezone: String? = null,
-    val timezoneOffset: Int? = null,
     val daily: List<DailyItem?>? = null,
-    val lon: Any? = null,
+    @NonNull
+    val lon: Double,
     val hourly: List<HourlyItem?>? = null,
-    val minutely: List<MinutelyItem?>? = null,
-    val lat: Any? = null
+    @NonNull
+    val lat: Double,
+    val addressName: String?
 )

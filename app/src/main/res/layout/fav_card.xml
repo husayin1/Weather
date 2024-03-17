@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="185dp"
+    android:layout_margin="20dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="30dp"
+    android:layoutDirection="ltr">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        android:minHeight="30dp">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="-16dp"
+            app:srcCompat="@drawable/large_white_circle" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/small_white_circle" />
+
+        <TextView
+            android:id="@+id/textViewCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/textViewFavCountry"
+            android:textColor="@color/box_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgWeather"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/textViewTemp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/box_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textViewCountry"
+            app:layout_constraintStart_toStartOf="@+id/textViewCountry"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCountry" />
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/textViewWeatherDescription"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/box_text"
+            app:layout_constraintEnd_toEndOf="@+id/textViewCountry"
+            app:layout_constraintStart_toStartOf="@+id/textViewCountry"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTemp" />
+
+        <TextView
+            android:id="@+id/textViewLastChecked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/textViewLastUpdate"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/box_text"
+            app:layout_constraintEnd_toEndOf="@+id/textViewCountry"
+            app:layout_constraintStart_toStartOf="@+id/textViewCountry"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/textViewDate"
+            android:textColor="@color/box_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textViewCountry"
+            app:layout_constraintStart_toStartOf="@+id/textViewCountry"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLastChecked" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imgWeather"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/verticalBarrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/verticalBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="textViewCountry, textViewTemp
+,textViewDescription, textViewDate" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

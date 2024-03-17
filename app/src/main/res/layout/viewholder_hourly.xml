@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:text="3 AM"
+            android:text="@string/_3_am"
             android:textColor="@color/text_color" />
 
         <ImageView
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:text="20"
+            android:text="@string/_20"
             android:textColor="@color/text_color"
             android:textSize="18sp" />
     </LinearLayout>

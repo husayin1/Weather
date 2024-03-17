@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.view.HomeFragment">
 
     <com.github.matteobattilana.weather.WeatherView
         android:id="@+id/weather_view"
@@ -14,6 +14,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:shimmer_duration="3000"
+        app:shimmer_intensity="0.7">
+        <include layout="@layout/place_holder_layout" />
+        <include layout="@layout/place_holder_layout" />
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -25,6 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <ScrollView
+            android:id="@+id/homeScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -33,34 +50,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
                 <TextView
                     android:id="@+id/textViewCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Egypt ,Port said"
+                    android:text="@string/textViewFavCountry"
                     android:textAlignment="center"
                     android:textColor="@color/text_color"
                     android:textSize="24sp" />
@@ -79,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Mostly Cloudy"
+                    android:text="@string/textViewWeatherDescription"
                     android:textAlignment="center"
                     android:textColor="@color/text_color"
                     android:textSize="20sp" />
@@ -88,7 +83,7 @@
                     android:id="@+id/textViewTemprature"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="25"
+                    android:text="@string/textViewTemp"
                     android:textAlignment="center"
                     android:textColor="@color/text_color"
                     android:textSize="63sp"
@@ -98,7 +93,7 @@
                     android:id="@+id/textViewDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mon March 3 | 10:00AM"
+                    android:text="@string/textViewDate"
                     android:textAlignment="center"
                     android:textColor="@color/text_color"
                     android:textSize="16sp" />
@@ -107,6 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
+                    android:layoutDirection="ltr"
                     android:background="@drawable/gradient_background">
 
                     <LinearLayout
@@ -138,18 +134,18 @@
                                     android:id="@+id/textViewCloudyValue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="22%"
+                                    android:text="@string/textViewCloudsValue"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/box_text"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/textViewCloudy"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Clouds"
+                                    android:text="@string/textViewClouds"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/box_text" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -170,18 +166,18 @@
                                     android:id="@+id/textViewWindSpeedValue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="22%"
+                                    android:text="@string/textViewCloudsValue"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/box_text"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/textViewWindSpeed"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Wind"
+                                    android:text="@string/textViewWind"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/box_text" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -202,18 +198,18 @@
                                     android:id="@+id/textViewHumidityValue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="18%"
+                                    android:text="@string/textViewCloudsValue"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/box_text"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/textViewHumidity"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Humidity"
+                                    android:text="@string/textViewHumidity"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/box_text" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -241,18 +237,18 @@
                                     android:id="@+id/textViewPressureValue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="1012 hPa"
+                                    android:text="@string/textViewPressureUnit"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/box_text"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/textViewPressure"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Pressure"
+                                    android:text="@string/textViewPressure"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/box_text" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -273,18 +269,18 @@
                                     android:id="@+id/textViewVisibilityValue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="10000%"
+                                    android:text="@string/textViewVisibilityValue"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/box_text"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/textViewVisibility"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Visibility"
+                                    android:text="@string/textViewVisibility"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/box_text" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -305,18 +301,18 @@
                                     android:id="@+id/textViewUVValue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0%"
+                                    android:text="@string/textViewUVValue"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/box_text"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/textViewUV"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Ultraviolet"
+                                    android:text="@string/textViewUV"
                                     android:textAlignment="center"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/box_text" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -326,6 +322,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="-8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:srcCompat="@drawable/small_white_circle" />
 
@@ -341,10 +338,10 @@
                 <TextView
                     android:id="@+id/textViewToday"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginStart="24dp"
                     android:layout_weight="1"
-                    android:text="Today"
+                    android:text="@string/textViewToday"
                     android:textColor="@color/text_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -364,21 +361,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="Forecasts for 8 Days"
+                    android:text="@string/textViewWeekly"
                     android:textColor="@color/text_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewDays"
+                <androidx.cardview.widget.CardView
+                    android:backgroundTint="@color/background_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:spanCount="1"
-                    tools:itemCount="7"
-                    tools:listitem="@layout/viewholder_day" />
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewDays"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:spanCount="1"
+                        tools:itemCount="7"
+                        tools:listitem="@layout/viewholder_day" />
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
         </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

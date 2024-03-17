@@ -4,10 +4,18 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
+    <color name="move">#D1A6C3</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#F3E9EE</color>
+    <color name="button">#FFFFFF</color>
+    <color name="box_text">#FFFFFF</color>
+
+    <color name="button_color">#D1A6C3</color>
     <color name="text_color">#331866</color>
     <color name="app_bar_color">#757575</color>
+    <color name="gray">#d6d8da</color>
+    <color name="btn_color">#24A0ED</color>
+    <color name="red">#B00020</color>
 </resources>

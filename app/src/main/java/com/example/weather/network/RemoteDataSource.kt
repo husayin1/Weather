@@ -9,19 +9,20 @@ class RemoteDataSource : IRemoteDataSource {
         private var remoteDataSourceInstance:RemoteDataSource?=null
         @Synchronized
         fun getInstance():RemoteDataSource{
-            return RemoteDataSource.remoteDataSourceInstance?: synchronized(this){
+            return remoteDataSourceInstance?: synchronized(this){
                 val instance = RemoteDataSource()
-                RemoteDataSource.remoteDataSourceInstance=instance
+                remoteDataSourceInstance=instance
                 instance
             }
         }
     }
-    private val weatherApiService=RetrofitHelper.retrofitInstance
+    private val service = RetrofitHelper.retrofitInstance.create(ApiService::class.java)
     override suspend fun getWeatherDataOnline(
         lat: Double,
         lon: Double,
         language: String
     ): WeatherResponse {
-        return weatherApiService.getWeatherResponse(lat,lon,language, units = CONSTANTS.celsius, apiKey = CONSTANTS.appKey)
+        return service.getWeatherResponse(apiKey = CONSTANTS.appKey,lat,lon,language)
     }
+
 }

@@ -7,7 +7,7 @@ data class DailyItem(
     val sunrise: Int? = null,
     val temp: Temp? = null,
     val moonPhase: Any? = null,
-    val uvi: Any? = null,
+    val uvi: Double? = null,
     val moonrise: Int? = null,
     val pressure: Int? = null,
     val clouds: Int? = null,
@@ -20,5 +20,5 @@ data class DailyItem(
     val sunset: Int? = null,
     val weather: List<WeatherItem?>? = null,
     val humidity: Int? = null,
-    val windSpeed: Any? = null
+    val wind_speed: Double? = null
 )

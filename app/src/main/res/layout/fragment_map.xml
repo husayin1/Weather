@@ -1,13 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.map.MapFragment">
+    tools:context=".ui.location.view.LocationFragment">
+
+    <ImageView
+        android:id="@+id/searchLocation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewSearch"
+        app:layout_constraintStart_toStartOf="@+id/cardViewSearch"
+        app:layout_constraintTop_toTopOf="@id/cardViewSearch"
+        app:srcCompat="@drawable/baseline_search_24" />
+
+    <ImageView
+        android:id="@+id/cancelSearch"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/cardViewSearch"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewSearch"
+        app:layout_constraintTop_toTopOf="@+id/cardViewSearch"
+        app:srcCompat="@drawable/baseline_cancel_24" />
 
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/map"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSearch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</FrameLayout>
+        android:layout_height="70dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0.7"
+        android:background="@color/white"
+        app:cardCornerRadius="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_searchMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="@string/textViewSearch"
+            android:paddingHorizontal="60dp"
+            android:textSize="16sp"
+            android:translationZ="1dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/currentLocation"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/cardViewSave"
+        app:layout_constraintEnd_toEndOf="@id/map"
+        app:srcCompat="@drawable/gps" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSave"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:alpha="0.7"
+        app:cardCornerRadius="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_select_on_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:enabled="false"
+            android:text="@string/buttonPickLocation"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

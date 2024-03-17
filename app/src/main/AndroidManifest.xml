@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!--permission for internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--permissions for location-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--permissions for alarms and notification-->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--permission for posting notification -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!--permission for alert windo -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,13 +26,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Weather"
         tools:targetApi="31">
+        <!--google map key-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAlSTQ-ZJiXkdKRouizAp1cXgi7TKc6ZOA" />
+
+        <receiver android:name=".ui.alerts.MyBroadcastReceiver" />
+
+        <receiver
+            android:name=".ui.alerts.DismissReceiver"
+            android:exported="false">
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Weather.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
